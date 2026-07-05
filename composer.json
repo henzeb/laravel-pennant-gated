@@ -1,0 +1,64 @@
+{
+    "name": "henzeb/laravel-pennant-gated",
+    "description": "A Pennant driver that gates per-scope features behind a global switch",
+    "keywords": [
+        "henzeb",
+        "laravel",
+        "pennant",
+        "feature flags",
+        "gate"
+    ],
+    "homepage": "https://github.com/henzeb/laravel-pennant-gated",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Henze Berkheij",
+            "email": "henzeberkheij@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "laravel/pennant": "^1.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^9.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0",
+        "phpstan/phpstan": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Henzeb\\Pennant\\Gated\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-parallel": "vendor/bin/pest --parallel",
+        "test-coverage-txt": "vendor/bin/pest --coverage",
+        "test-coverage": "XDEBUG_MODE=coverage vendor/bin/pest --coverage-html coverage",
+        "test-dox": "vendor/bin/pest --testdox",
+        "test-mutate": "XDEBUG_MODE=coverage vendor/bin/pest --mutate"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Henzeb\\Pennant\\Gated\\Providers\\PennantGatedServiceProvider"
+            ]
+        }
+    }
+}
